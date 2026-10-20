@@ -1,0 +1,66 @@
+<div class="hm-site" data-page="Home">
+<header class="hm-head" id="hm-head">
+    <div class="hm-head-row">
+        <button type="button" class="hm-burger" aria-label="Open menu" onclick="HomeJs.openNav()"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <a class="hm-logo" href="Home" aria-label="Hearthstone Bakery home"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#2B1D14"/><path d="M8 25c0-7 5-12 12-12s12 5 12 12c0 2-1 3-3 3H11c-2 0-3-1-3-3z" fill="#E6C58C"/><path d="M15 20l2 5M21 18l1 7M27 20l-2 5" stroke="#2B1D14" stroke-width="2" stroke-linecap="round"/><path d="M11 31h18" stroke="#C2652A" stroke-width="3" stroke-linecap="round"/></svg><span>Hearthstone</span></a>
+        <nav class="hm-nav" id="hm-nav" aria-label="Main">
+            <div class="hm-nav-top"><b>Menu</b><button type="button" class="hm-ibtn" aria-label="Close menu" onclick="HomeJs.closeNav()"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+            <ul class="hm-menu"><li><a class="hm-ml hm-on" href="Home">Home</a></li><li><a class="hm-ml" href="Menu">Menu</a></li><li><a class="hm-ml" href="About">Our story</a></li><li><a class="hm-ml" href="Track">Track order</a></li><li><a class="hm-ml" href="Contact">Contact</a></li></ul>
+        </nav>
+        <a class="hm-basket" href="Order" aria-label="Basket"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h14l-1.4 9.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8L5 9z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/></svg><span>Basket</span><i class="hm-count" id="hm-count">0</i></a>
+    </div>
+    <div class="hm-scrim" id="hm-scrim" onclick="HomeJs.closeNav()"></div>
+</header>
+<main class="hm-main">
+<section class="hm-hero">
+    <img class="hm-hero-img" src="images/hero.webp" alt="">
+    <div class="hm-wrap hm-hero-in">
+        <div class="hm-eyebrow">{plhd_next}</div>
+        <h1>{plhd_tagline}</h1>
+        <p>Choose your loaves and pastries, pick a day and a time, then collect them warm from the counter or have them delivered.</p>
+        <div class="hm-hero-acts"><a class="hm-btn" href="Order">Order online</a><a class="hm-btn hm-btn-ghost" href="Menu">See the menu</a></div>
+    </div>
+</section>
+<section class="hm-wrap hm-sec">
+    <div class="hm-sec-h"><h2>How ordering works</h2></div>
+    <ol class="hm-steps">
+        <li><span class="hm-num">1</span><b>Fill your basket</b><p>Browse the menu and add what you like. Prices are shown with tax included.</p></li>
+        <li><span class="hm-num">2</span><b>Pick a day and time</b><p>Choose collection or delivery and a two-hour window. We show only times we can still bake for.</p></li>
+        <li><span class="hm-num">3</span><b>Pay when it arrives</b><p>No card needed online. Pay at the counter or at your door, and track your order any time.</p></li>
+    </ol>
+</section>
+<section class="hm-wrap hm-sec">
+    <div class="hm-sec-h"><h2>Baker&rsquo;s favourites</h2><a class="hm-more" href="Menu">See the full menu</a></div>
+    <div class="hm-grid">{plhd_fav}</div>
+</section>
+<section class="hm-wrap hm-sec">
+    <div class="hm-sec-h"><h2>Shop by kind</h2></div>
+    <div class="hm-cats">{plhd_cats}</div>
+</section>
+<section class="hm-wrap hm-sec">
+    <div class="hm-visit">
+        <img src="images/about.webp" alt="Loaves, a cake and a cup on a bakery table" loading="lazy">
+        <div class="hm-visit-b">
+            <div class="hm-eyebrow">Visit us</div>
+            <h2>Come to the counter</h2>
+            <p class="hm-lead">{plhd_address}</p>
+            <div class="hm-hours">{plhd_hours}</div>
+            <a class="hm-btn hm-btn-ghost" href="Contact">Get in touch</a>
+        </div>
+    </div>
+</section>
+</main>
+<footer class="hm-foot">
+    <div class="hm-foot-in">
+        <div class="hm-fbrand">
+            <a class="hm-logo" href="Home"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#2B1D14"/><path d="M8 25c0-7 5-12 12-12s12 5 12 12c0 2-1 3-3 3H11c-2 0-3-1-3-3z" fill="#E6C58C"/><path d="M15 20l2 5M21 18l1 7M27 20l-2 5" stroke="#2B1D14" stroke-width="2" stroke-linecap="round"/><path d="M11 31h18" stroke="#C2652A" stroke-width="3" stroke-linecap="round"/></svg><span>Hearthstone</span></a>
+            <p>{plhd_f_tag}</p>
+        </div>
+        <div class="hm-fcol"><b>Visit</b><p>{plhd_f_address}</p><p>{plhd_f_phone}</p></div>
+        <div class="hm-fcol"><b>Hours</b>{plhd_f_hours}</div>
+        <div class="hm-fcol"><b>Explore</b><a href="Menu">Menu</a><a href="Order">Order online</a><a href="Track">Track an order</a><a href="Contact">Contact</a></div>
+    </div>
+    <div class="hm-foot-b">&copy; 2026 Hearthstone Bakery &middot; <a href="AdminLogin">Staff sign in</a></div>
+</footer>
+<div class="hm-toast" id="hm-toast" role="status" aria-live="polite"></div>
+</div>

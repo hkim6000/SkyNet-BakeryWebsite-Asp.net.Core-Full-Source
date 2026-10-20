@@ -1,0 +1,24 @@
+<div class="db-site" data-page="Admin">
+<header class="db-head">
+    <button type="button" class="db-burger" aria-label="Open menu" onclick="AdminJs.openNav()"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="db-logo" href="Admin" aria-label="Staff dashboard"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#2B1D14"/><path d="M8 25c0-7 5-12 12-12s12 5 12 12c0 2-1 3-3 3H11c-2 0-3-1-3-3z" fill="#E6C58C"/><path d="M15 20l2 5M21 18l1 7M27 20l-2 5" stroke="#2B1D14" stroke-width="2" stroke-linecap="round"/><path d="M11 31h18" stroke="#C2652A" stroke-width="3" stroke-linecap="round"/></svg><span>Hearthstone <small>Staff</small></span></a>
+    <div class="db-who" id="db-who"></div>
+    <a class="db-hlink" href="Home" target="_blank" rel="noopener">View site</a>
+    <button type="button" class="db-hbtn" onclick="AdminJs.signOut()">Sign out</button>
+</header>
+<div class="db-body">
+    <aside class="db-rail" id="db-rail" aria-label="Staff menu">
+        <div class="db-rail-top"><b>Menu</b><button type="button" class="db-ibtn" aria-label="Close menu" onclick="AdminJs.closeNav()"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+        <nav class="db-menu" id="db-menu"></nav>
+    </aside>
+    <div class="db-scrim" id="db-scrim" onclick="AdminJs.closeNav()"></div>
+    <main class="db-main" id="db-main"><p class="db-muted">Loading&hellip;</p></main>
+</div>
+<div class="db-modal" id="db-modal" role="dialog" aria-modal="true" aria-labelledby="db-mtitle">
+    <div class="db-mbox">
+        <div class="db-mhead"><h2 id="db-mtitle"></h2><button type="button" class="db-ibtn" aria-label="Close" onclick="AdminJs.closeModal()"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+        <div class="db-mbody" id="db-mbody"></div>
+    </div>
+</div>
+<div class="db-toast" id="db-toast" role="status" aria-live="polite"></div>
+</div>

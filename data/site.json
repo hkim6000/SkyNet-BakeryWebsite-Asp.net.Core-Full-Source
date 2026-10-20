@@ -1,0 +1,271 @@
+{
+  "brand": "Hearthstone Bakery",
+  "tagline": "Slow-fermented bread, baked fresh and ready when you are.",
+  "phone": "555-0142",
+  "email": "hello@hearthstone-bakery.example",
+  "address": "14 Mill Lane, Ashford Mills",
+  "hours": [
+    {
+      "days": "Tuesday to Friday",
+      "time": "7:00 to 17:00"
+    },
+    {
+      "days": "Saturday",
+      "time": "7:00 to 15:00"
+    },
+    {
+      "days": "Sunday and Monday",
+      "time": "Closed"
+    }
+  ],
+  "rules": {
+    "deliveryFee": 4.5,
+    "freeDeliveryOver": 40.00,
+    "minDelivery": 15.00,
+    "leadHours": 12,
+    "daysAhead": 14,
+    "slotCapacity": 6,
+    "openDays": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slots": [
+      "08:00-10:00",
+      "10:00-12:00",
+      "12:00-14:00",
+      "14:00-16:00"
+    ],
+    "deliveryZips": [
+      "90011",
+      "90012",
+      "90013",
+      "90014"
+    ],
+    "closedDates": []
+  },
+  "categories": [
+    {
+      "key": "bread",
+      "label": "Bread",
+      "note": "Long fermented, baked in the morning."
+    },
+    {
+      "key": "pastries",
+      "label": "Pastries",
+      "note": "Laminated by hand, baked until deep gold."
+    },
+    {
+      "key": "cakes",
+      "label": "Cakes",
+      "note": "Whole cakes for the table. Order a day ahead."
+    },
+    {
+      "key": "sweets",
+      "label": "Cookies and tarts",
+      "note": "Small treats for the bag or the box."
+    }
+  ],
+  "products": [
+    {
+      "key": "country-sourdough",
+      "title": "Country sourdough",
+      "category": "bread",
+      "price": 8.5,
+      "unit": "loaf, 800 g",
+      "image": "country-sourdough",
+      "text": "A crisp, blistered crust and an open, tangy crumb. Our house loaf.",
+      "tag": "Bestseller",
+      "available": true,
+      "featured": true
+    },
+    {
+      "key": "seeded-rye",
+      "title": "Seeded rye",
+      "category": "bread",
+      "price": 9,
+      "unit": "loaf, 750 g",
+      "image": "seeded-rye",
+      "text": "Dense and nutty, packed with sunflower, flax and sesame seeds.",
+      "tag": "",
+      "available": true,
+      "featured": true
+    },
+    {
+      "key": "walnut-raisin",
+      "title": "Walnut and raisin loaf",
+      "category": "bread",
+      "price": 9.5,
+      "unit": "loaf, 700 g",
+      "image": "walnut-raisin",
+      "text": "Toasted walnuts and plump raisins folded through a soft dough. Lovely with cheese.",
+      "tag": "Seasonal",
+      "available": true,
+      "featured": false
+    },
+    {
+      "key": "milk-rolls",
+      "title": "Soft milk rolls",
+      "category": "bread",
+      "price": 6,
+      "unit": "bag of 6",
+      "image": "milk-rolls",
+      "text": "Pillowy rolls with a thin golden top. Made for sandwiches and soup.",
+      "tag": "",
+      "available": true,
+      "featured": false
+    },
+    {
+      "key": "butter-croissant",
+      "title": "Butter croissant",
+      "category": "pastries",
+      "price": 3.75,
+      "unit": "each",
+      "image": "butter-croissant",
+      "text": "Seventy-two layers of cultured butter dough. Best eaten the same day.",
+      "tag": "Bestseller",
+      "available": true,
+      "featured": true
+    },
+    {
+      "key": "almond-croissant",
+      "title": "Almond croissant",
+      "category": "pastries",
+      "price": 4.5,
+      "unit": "each",
+      "image": "almond-croissant",
+      "text": "A day-old croissant, filled with almond cream and baked again with flaked almonds.",
+      "tag": "",
+      "available": true,
+      "featured": false
+    },
+    {
+      "key": "cardamom-bun",
+      "title": "Cardamom bun",
+      "category": "pastries",
+      "price": 4,
+      "unit": "each",
+      "image": "cardamom-bun",
+      "text": "A knotted, sticky bun with cardamom, sugar and a pinch of salt.",
+      "tag": "New",
+      "available": true,
+      "featured": true
+    },
+    {
+      "key": "chocolate-twist",
+      "title": "Chocolate twist",
+      "category": "pastries",
+      "price": 4.25,
+      "unit": "each",
+      "image": "chocolate-twist",
+      "text": "Dark chocolate rolled into laminated dough and twisted before baking.",
+      "tag": "",
+      "available": true,
+      "featured": false
+    },
+    {
+      "key": "lemon-loaf",
+      "title": "Lemon drizzle loaf",
+      "category": "cakes",
+      "price": 14,
+      "unit": "loaf cake, serves 8",
+      "image": "lemon-loaf",
+      "text": "Moist lemon sponge with a sharp, crackly glaze.",
+      "tag": "",
+      "available": true,
+      "featured": true
+    },
+    {
+      "key": "carrot-cake",
+      "title": "Carrot cake",
+      "category": "cakes",
+      "price": 32,
+      "unit": "whole cake, serves 10",
+      "image": "carrot-cake",
+      "text": "Spiced carrot sponge with walnuts and a cream cheese frosting.",
+      "tag": "",
+      "available": true,
+      "featured": false
+    },
+    {
+      "key": "chocolate-cake",
+      "title": "Chocolate cake",
+      "category": "cakes",
+      "price": 34,
+      "unit": "whole cake, serves 10",
+      "image": "chocolate-cake",
+      "text": "Three layers of dark chocolate sponge with a glossy ganache.",
+      "tag": "Order a day ahead",
+      "available": true,
+      "featured": false
+    },
+    {
+      "key": "brown-butter-cookies",
+      "title": "Brown butter cookies",
+      "category": "sweets",
+      "price": 7,
+      "unit": "box of 4",
+      "image": "brown-butter-cookies",
+      "text": "Chewy, toffee-edged cookies made with browned butter and sea salt.",
+      "tag": "",
+      "available": true,
+      "featured": false
+    },
+    {
+      "key": "fruit-tart",
+      "title": "Seasonal fruit tart",
+      "category": "sweets",
+      "price": 6.5,
+      "unit": "each",
+      "image": "fruit-tart",
+      "text": "Crisp pastry, vanilla cream and whatever fruit is best this week.",
+      "tag": "Seasonal",
+      "available": true,
+      "featured": false
+    }
+  ],
+  "team": [
+    {
+      "name": "Mara Lindqvist",
+      "role": "Head baker",
+      "image": "mara-lindqvist",
+      "text": "Mara feeds the starter, mixes the doughs and opens the ovens at 4 a.m."
+    },
+    {
+      "name": "Tomas Reyes",
+      "role": "Pastry chef",
+      "image": "tomas-reyes",
+      "text": "Tomas laminates the croissants and builds every cake by hand."
+    },
+    {
+      "name": "June Okafor",
+      "role": "Front of house",
+      "image": "june-okafor",
+      "text": "June packs your order, knows the regulars and answers the phone."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How far ahead should I order?",
+      "a": "Most items need about 12 hours. Whole cakes are best ordered a day ahead. The order page only shows times we can still bake for."
+    },
+    {
+      "q": "Do you deliver?",
+      "a": "Yes, to a small area around the bakery. Enter your ZIP code at checkout to see if we deliver to you. Delivery is free on larger orders."
+    },
+    {
+      "q": "How do I pay?",
+      "a": "You pay when you collect or when we deliver. We take cash and cards at the counter. No card details are needed online."
+    },
+    {
+      "q": "Can I change or cancel an order?",
+      "a": "Call or email us at least 12 hours before your time slot and we will sort it out. You can check your order status on the Track page."
+    },
+    {
+      "q": "Do you cater for allergies?",
+      "a": "Our kitchen handles wheat, milk, eggs, nuts, sesame and seeds every day. We cannot guarantee any item is free of them."
+    }
+  ]
+}

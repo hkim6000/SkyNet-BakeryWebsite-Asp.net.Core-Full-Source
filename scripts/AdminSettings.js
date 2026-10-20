@@ -1,0 +1,266 @@
+var AdminSettingsJs = (function () {
+
+    var ttimer = null;
+    var dirty = false;
+    var askBox = null, askDone = null, askCheck = null, askBack = null;
+
+    function el(id) {
+        return document.getElementById(id);
+    }
+
+    function val(id) {
+        var e = el(id);
+        return e ? (e.value || '').trim() : '';
+    }
+
+    function checked(id) {
+        var e = el(id);
+        return e && e.checked ? '1' : '0';
+    }
+
+    function basePath() {
+        var p = location.pathname;
+        return p.substring(0, p.lastIndexOf('/') + 1);
+    }
+
+    function getCookie() {
+        var m = document.cookie.match(/(?:^|; )bk_tok=([0-9a-f]+)/);
+        return m ? m[1] : '';
+    }
+
+    function api(method, list) {
+        list = list || [];
+        list.push({ key: 'tok', vlu: getCookie() });
+        $ApiRequest('AdminSettings/' + method, JSON.stringify(list));
+    }
+
+    function expired() {
+        document.cookie = 'bk_tok=; path=' + basePath() + '; max-age=0';
+        location.href = 'AdminLogin';
+    }
+
+    function signOut() {
+        $ApiRequest('AdminLogin/SignOut', JSON.stringify([{ key: 'tok', vlu: getCookie() }]));
+    }
+
+    function toast(msg) {
+        var t = el('as-toast');
+        t.textContent = msg;
+        t.classList.add('as-open');
+        clearTimeout(ttimer);
+        ttimer = setTimeout(function () {
+            t.classList.remove('as-open');
+        }, 3200);
+    }
+
+    function openNav() {
+        el('as-rail').classList.add('as-open');
+        el('as-scrim').classList.add('as-open');
+    }
+
+    function closeNav() {
+        el('as-rail').classList.remove('as-open');
+        el('as-scrim').classList.remove('as-open');
+    }
+
+    function openModal(title) {
+        el('as-mtitle').textContent = title;
+        el('as-modal').classList.add('as-open');
+        dirty = false;
+        var f = el('as-mbody').querySelector('input, select, textarea');
+        if (f) {
+            f.focus();
+        }
+    }
+
+    function forceClose() {
+        el('as-modal').classList.remove('as-open');
+        el('as-mbody').innerHTML = '';
+        dirty = false;
+    }
+
+    function closeModal() {
+        if (!el('as-modal').classList.contains('as-open')) {
+            return;
+        }
+        if (dirty) {
+            ask({ title: 'Leave without saving?', text: 'Your changes will be lost.', ok: 'Leave', no: 'Keep editing', danger: true }, forceClose);
+            return;
+        }
+        forceClose();
+    }
+
+    function markDirty() {
+        dirty = true;
+    }
+
+    function askParts() {
+        return { h: askBox.querySelector('h2'), p: askBox.querySelector('p'), i: askBox.querySelector('input'), e: askBox.querySelector('em'), b: askBox.querySelectorAll('button') };
+    }
+
+    function askClose(ok) {
+        if (!askBox || !askBox.classList.contains('as-open')) {
+            return;
+        }
+        var x = askParts(), f = askDone, v = x.i.value.trim();
+        askBox.classList.remove('as-open');
+        askDone = null;
+        askCheck = null;
+        if (askBack && askBack.focus && document.body.contains(askBack)) {
+            askBack.focus();
+        }
+        askBack = null;
+        if (ok && f) {
+            f(v);
+        }
+    }
+
+    function askOk() {
+        var x = askParts();
+        var m = askCheck ? askCheck(x.i.value.trim()) : '';
+        if (m) {
+            x.e.textContent = m;
+            x.i.focus();
+            return;
+        }
+        askClose(true);
+    }
+
+    function askBuild() {
+        askBox = document.createElement('div');
+        askBox.className = 'as-ask';
+        askBox.innerHTML = '<div class="as-askbox" role="alertdialog" aria-modal="true"><h2></h2><p></p><input type="text" maxlength="300" autocomplete="off" aria-label="Reason"><em class="as-err" role="alert"></em><div class="as-askacts"><button type="button" class="as-btn as-btn-ghost"></button><button type="button" class="as-btn"></button></div></div>';
+        el('as-modal').parentNode.appendChild(askBox);
+        var x = askParts();
+        x.b[0].addEventListener('click', function () { askClose(false); });
+        x.b[1].addEventListener('click', askOk);
+        x.i.addEventListener('input', function () { x.e.textContent = ''; });
+        askBox.addEventListener('mousedown', function (e) { if (e.target === askBox) { askClose(false); } });
+        window.addEventListener('keydown', function (e) {
+            if (!askBox.classList.contains('as-open')) {
+                return;
+            }
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                e.stopPropagation();
+                askClose(false);
+            } else if (e.key === 'Enter' && e.target !== x.b[0]) {
+                e.preventDefault();
+                e.stopPropagation();
+                askOk();
+            } else if (e.key === 'Tab') {
+                var f = [x.i, x.b[0], x.b[1]].filter(function (n) { return n.offsetParent !== null; });
+                var at = f.indexOf(document.activeElement);
+                e.preventDefault();
+                f[(at + (e.shiftKey ? f.length - 1 : 1)) % f.length].focus();
+            }
+        }, true);
+    }
+
+    function ask(o, done) {
+        if (!askBox) {
+            askBuild();
+        }
+        var x = askParts(), input = typeof o.value === 'string';
+        askBack = document.activeElement;
+        askDone = done;
+        askCheck = o.check || null;
+        x.h.textContent = o.title || '';
+        x.p.textContent = o.text || '';
+        x.e.textContent = '';
+        x.b[0].textContent = o.no || 'Cancel';
+        x.b[1].textContent = o.ok || 'OK';
+        x.b[1].className = 'as-btn' + (o.danger ? ' as-askdel' : '');
+        askBox.firstChild.classList.toggle('as-askin', input);
+        x.i.value = input ? o.value : '';
+        x.i.placeholder = o.place || '';
+        askBox.classList.add('as-open');
+        if (input) {
+            x.i.focus();
+        } else {
+            x.b[o.danger ? 0 : 1].focus();
+        }
+    }
+
+    function debounce(fn, ms) {
+        var t = null;
+        return function () {
+            var a = arguments;
+            clearTimeout(t);
+            t = setTimeout(function () {
+                fn.apply(null, a);
+            }, ms);
+        };
+    }
+
+    function days() {
+        var out = [];
+        document.querySelectorAll('#as-main input[data-day]').forEach(function (i) {
+            if (i.checked) {
+                out.push(i.getAttribute('data-day'));
+            }
+        });
+        return out.join(',');
+    }
+
+    function save() {
+        var names = ['phone', 'email', 'address', 'hours', 'fee', 'free', 'min', 'lead', 'ahead', 'cap', 'slots', 'zips', 'closed'];
+        var list = names.map(function (n) {
+            return { key: n, vlu: el('as-f-' + n).value };
+        });
+        list.push({ key: 'days', vlu: days() });
+        el('as-save').disabled = true;
+        api('Save', list);
+        return false;
+    }
+
+    function saved(message) {
+        el('as-save').disabled = false;
+        toast(message);
+    }
+
+    function failed() {
+        el('as-save').disabled = false;
+        toast('Please fix the fields marked in red.');
+    }
+
+    function reveal() {
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !(askBox && askBox.classList.contains('as-open'))) {
+                closeNav();
+                closeModal();
+            }
+        });
+        el('as-modal').addEventListener('mousedown', function (e) {
+            if (e.target === el('as-modal')) {
+                closeModal();
+            }
+        });
+        el('as-mbody').addEventListener('input', markDirty);
+        el('as-mbody').addEventListener('change', markDirty);
+
+        api('Load');
+    }
+
+    return {
+        reveal: reveal,
+        toast: toast,
+        expired: expired,
+        signOut: signOut,
+        openNav: openNav,
+        closeNav: closeNav,
+        openModal: openModal,
+        closeModal: closeModal,
+        forceClose: forceClose,
+        api: api,
+        save: save,
+        saved: saved,
+        failed: failed
+    };
+})();
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', AdminSettingsJs.reveal);
+} else {
+    AdminSettingsJs.reveal();
+}

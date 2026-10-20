@@ -1,0 +1,66 @@
+<div class="ab-site" data-page="About">
+<header class="ab-head" id="ab-head">
+    <div class="ab-head-row">
+        <button type="button" class="ab-burger" aria-label="Open menu" onclick="AboutJs.openNav()"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <a class="ab-logo" href="Home" aria-label="Hearthstone Bakery home"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#2B1D14"/><path d="M8 25c0-7 5-12 12-12s12 5 12 12c0 2-1 3-3 3H11c-2 0-3-1-3-3z" fill="#E6C58C"/><path d="M15 20l2 5M21 18l1 7M27 20l-2 5" stroke="#2B1D14" stroke-width="2" stroke-linecap="round"/><path d="M11 31h18" stroke="#C2652A" stroke-width="3" stroke-linecap="round"/></svg><span>Hearthstone</span></a>
+        <nav class="ab-nav" id="ab-nav" aria-label="Main">
+            <div class="ab-nav-top"><b>Menu</b><button type="button" class="ab-ibtn" aria-label="Close menu" onclick="AboutJs.closeNav()"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+            <ul class="ab-menu"><li><a class="ab-ml" href="Home">Home</a></li><li><a class="ab-ml" href="Menu">Menu</a></li><li><a class="ab-ml ab-on" href="About">Our story</a></li><li><a class="ab-ml" href="Track">Track order</a></li><li><a class="ab-ml" href="Contact">Contact</a></li></ul>
+        </nav>
+        <a class="ab-basket" href="Order" aria-label="Basket"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h14l-1.4 9.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8L5 9z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/></svg><span>Basket</span><i class="ab-count" id="ab-count">0</i></a>
+    </div>
+    <div class="ab-scrim" id="ab-scrim" onclick="AboutJs.closeNav()"></div>
+</header>
+<main class="ab-main">
+<section class="ab-banner">
+    <img src="images/about.webp" alt="">
+    <div class="ab-wrap ab-banner-in">
+        <div class="ab-eyebrow">Our story</div>
+        <h1>Bread, given the time it needs</h1>
+    </div>
+</section>
+<section class="ab-wrap ab-sec">
+    <div class="ab-story">
+        <div>
+            <h2>A small bakery with a long fermentation</h2>
+            <p class="ab-lead">Hearthstone started with one oven and one jar of starter. Today we still mix every dough by hand, let it rest overnight and bake in small batches so the crust is crisp when it reaches you.</p>
+        </div>
+        <div class="ab-copy">
+            <p>We keep the menu short on purpose. A handful of loaves, a few pastries, cakes made to order and cookies for the road. Everything is baked for the orders we have, which means less waste and fresher bread.</p>
+            <p>That is why we ask you to order ahead. Pick a day and a time window, and we will have it ready, warm, at the counter or at your door.</p>
+        </div>
+    </div>
+</section>
+<section class="ab-wrap ab-sec">
+    <div class="ab-sec-h"><h2>How we bake</h2></div>
+    <ul class="ab-values">
+        <li><b>Slow dough</b><p>Most loaves rest for at least sixteen hours. The wait gives flavour and a crumb that keeps.</p></li>
+        <li><b>Short ingredient lists</b><p>Flour, water, salt and time for the bread. Butter, not shortcuts, for the pastry.</p></li>
+        <li><b>Baked to order</b><p>We bake for the day&rsquo;s orders and a few extra for the counter. Sold out means sold out.</p></li>
+    </ul>
+</section>
+<section class="ab-wrap ab-sec">
+    <div class="ab-sec-h"><h2>The people behind the counter</h2></div>
+    <div class="ab-team">{plhd_team}</div>
+</section>
+<section class="ab-wrap ab-sec">
+    <div class="ab-cta">
+        <div><h2>Ready to order?</h2><p class="ab-lead">Pick a day, pick a time, and we will have it ready.</p></div>
+        <a class="ab-btn" href="Order">Order online</a>
+    </div>
+</section>
+</main>
+<footer class="ab-foot">
+    <div class="ab-foot-in">
+        <div class="ab-fbrand">
+            <a class="ab-logo" href="Home"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#2B1D14"/><path d="M8 25c0-7 5-12 12-12s12 5 12 12c0 2-1 3-3 3H11c-2 0-3-1-3-3z" fill="#E6C58C"/><path d="M15 20l2 5M21 18l1 7M27 20l-2 5" stroke="#2B1D14" stroke-width="2" stroke-linecap="round"/><path d="M11 31h18" stroke="#C2652A" stroke-width="3" stroke-linecap="round"/></svg><span>Hearthstone</span></a>
+            <p>{plhd_f_tag}</p>
+        </div>
+        <div class="ab-fcol"><b>Visit</b><p>{plhd_f_address}</p><p>{plhd_f_phone}</p></div>
+        <div class="ab-fcol"><b>Hours</b>{plhd_f_hours}</div>
+        <div class="ab-fcol"><b>Explore</b><a href="Menu">Menu</a><a href="Order">Order online</a><a href="Track">Track an order</a><a href="Contact">Contact</a></div>
+    </div>
+    <div class="ab-foot-b">&copy; 2026 Hearthstone Bakery &middot; <a href="AdminLogin">Staff sign in</a></div>
+</footer>
+<div class="ab-toast" id="ab-toast" role="status" aria-live="polite"></div>
+</div>

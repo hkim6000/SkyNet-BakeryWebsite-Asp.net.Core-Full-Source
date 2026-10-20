@@ -1,0 +1,43 @@
+<div class="mn-site" data-page="Menu">
+<header class="mn-head" id="mn-head">
+    <div class="mn-head-row">
+        <button type="button" class="mn-burger" aria-label="Open menu" onclick="MenuJs.openNav()"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <a class="mn-logo" href="Home" aria-label="Hearthstone Bakery home"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#2B1D14"/><path d="M8 25c0-7 5-12 12-12s12 5 12 12c0 2-1 3-3 3H11c-2 0-3-1-3-3z" fill="#E6C58C"/><path d="M15 20l2 5M21 18l1 7M27 20l-2 5" stroke="#2B1D14" stroke-width="2" stroke-linecap="round"/><path d="M11 31h18" stroke="#C2652A" stroke-width="3" stroke-linecap="round"/></svg><span>Hearthstone</span></a>
+        <nav class="mn-nav" id="mn-nav" aria-label="Main">
+            <div class="mn-nav-top"><b>Menu</b><button type="button" class="mn-ibtn" aria-label="Close menu" onclick="MenuJs.closeNav()"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+            <ul class="mn-menu"><li><a class="mn-ml" href="Home">Home</a></li><li><a class="mn-ml mn-on" href="Menu">Menu</a></li><li><a class="mn-ml" href="About">Our story</a></li><li><a class="mn-ml" href="Track">Track order</a></li><li><a class="mn-ml" href="Contact">Contact</a></li></ul>
+        </nav>
+        <a class="mn-basket" href="Order" aria-label="Basket"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h14l-1.4 9.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8L5 9z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/></svg><span>Basket</span><i class="mn-count" id="mn-count">0</i></a>
+    </div>
+    <div class="mn-scrim" id="mn-scrim" onclick="MenuJs.closeNav()"></div>
+</header>
+<main class="mn-main">
+<section class="mn-wrap mn-sec mn-top">
+    <div class="mn-eyebrow">Order online</div>
+    <h1>The menu</h1>
+    <p class="mn-lead">Everything is baked to order. Add your favourites to the basket, then choose a day and time.</p>
+    <div class="mn-bar">
+        <div class="mn-chips" id="mn-chips" data-cat="{plhd_cat}" role="group" aria-label="Filter by kind">{plhd_chips}</div>
+        <label class="mn-search"><span class="mn-sr">Search the menu</span><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input type="search" id="mn-q" placeholder="Search the menu" autocomplete="off" maxlength="40" value="{plhd_term}" oninput="MenuJs.search(this.value)"></label>
+    </div>
+    <div class="mn-count-line" id="mn-countline" aria-live="polite">{plhd_countline}</div>
+</section>
+<section class="mn-wrap mn-sec mn-list">
+    <div class="mn-grid" id="mn-grid">{plhd_grid}</div>
+    <p class="mn-note">Prices include tax. You pay when you collect or when we deliver.</p>
+</section>
+</main>
+<footer class="mn-foot">
+    <div class="mn-foot-in">
+        <div class="mn-fbrand">
+            <a class="mn-logo" href="Home"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#2B1D14"/><path d="M8 25c0-7 5-12 12-12s12 5 12 12c0 2-1 3-3 3H11c-2 0-3-1-3-3z" fill="#E6C58C"/><path d="M15 20l2 5M21 18l1 7M27 20l-2 5" stroke="#2B1D14" stroke-width="2" stroke-linecap="round"/><path d="M11 31h18" stroke="#C2652A" stroke-width="3" stroke-linecap="round"/></svg><span>Hearthstone</span></a>
+            <p>{plhd_f_tag}</p>
+        </div>
+        <div class="mn-fcol"><b>Visit</b><p>{plhd_f_address}</p><p>{plhd_f_phone}</p></div>
+        <div class="mn-fcol"><b>Hours</b>{plhd_f_hours}</div>
+        <div class="mn-fcol"><b>Explore</b><a href="Menu">Menu</a><a href="Order">Order online</a><a href="Track">Track an order</a><a href="Contact">Contact</a></div>
+    </div>
+    <div class="mn-foot-b">&copy; 2026 Hearthstone Bakery &middot; <a href="AdminLogin">Staff sign in</a></div>
+</footer>
+<div class="mn-toast" id="mn-toast" role="status" aria-live="polite"></div>
+</div>

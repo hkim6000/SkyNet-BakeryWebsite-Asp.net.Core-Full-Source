@@ -1,0 +1,81 @@
+<div class="od-site" data-page="Order">
+<header class="od-head" id="od-head">
+    <div class="od-head-row">
+        <button type="button" class="od-burger" aria-label="Open menu" onclick="OrderJs.openNav()"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <a class="od-logo" href="Home" aria-label="Hearthstone Bakery home"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#2B1D14"/><path d="M8 25c0-7 5-12 12-12s12 5 12 12c0 2-1 3-3 3H11c-2 0-3-1-3-3z" fill="#E6C58C"/><path d="M15 20l2 5M21 18l1 7M27 20l-2 5" stroke="#2B1D14" stroke-width="2" stroke-linecap="round"/><path d="M11 31h18" stroke="#C2652A" stroke-width="3" stroke-linecap="round"/></svg><span>Hearthstone</span></a>
+        <nav class="od-nav" id="od-nav" aria-label="Main">
+            <div class="od-nav-top"><b>Menu</b><button type="button" class="od-ibtn" aria-label="Close menu" onclick="OrderJs.closeNav()"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+            <ul class="od-menu"><li><a class="od-ml" href="Home">Home</a></li><li><a class="od-ml" href="Menu">Menu</a></li><li><a class="od-ml" href="About">Our story</a></li><li><a class="od-ml" href="Track">Track order</a></li><li><a class="od-ml" href="Contact">Contact</a></li></ul>
+        </nav>
+        <a class="od-basket" href="Order" aria-label="Basket"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h14l-1.4 9.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8L5 9z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/></svg><span>Basket</span><i class="od-count" id="od-count">0</i></a>
+    </div>
+    <div class="od-scrim" id="od-scrim" onclick="OrderJs.closeNav()"></div>
+</header>
+<main class="od-main">
+<section class="od-wrap od-sec od-top">
+    <div class="od-eyebrow">Almost there</div>
+    <h1>Your order</h1>
+    <p class="od-lead">Check your basket, choose collection or delivery, pick a time and tell us who you are. You pay when it arrives.</p>
+    <div class="od-done" id="od-done" aria-live="polite"></div>
+    <form class="od-layout" id="od-layout" onsubmit="return OrderJs.place()" novalidate>
+        <div class="od-stack">
+            <section class="od-box">
+                <h2><span class="od-n">1</span>Your basket</h2>
+                <div class="od-lines" id="od-lines"><p class="od-muted">Loading your basket&hellip;</p></div>
+            </section>
+            <section class="od-box">
+                <h2><span class="od-n">2</span>Collect or deliver</h2>
+                <div class="od-modes" role="radiogroup" aria-label="Collect or deliver">
+                    <label class="od-mode"><input type="radio" name="od-mode" id="od-m-pickup" value="pickup" checked onchange="OrderJs.mode()"><span><b>Collect</b><small>From our counter. Free.</small></span></label>
+                    <label class="od-mode"><input type="radio" name="od-mode" id="od-m-delivery" value="delivery" onchange="OrderJs.mode()"><span><b>Delivery</b><small>{plhd_feeline}</small></span></label>
+                </div>
+                <div class="od-deliv" id="od-deliv" hidden>
+                    <label class="od-field"><span>Street address</span><input type="text" id="od-address" maxlength="120" autocomplete="street-address"><em class="od-err" id="od-e-address"></em></label>
+                    <label class="od-field od-zipf"><span>ZIP code</span><input type="text" id="od-zip" maxlength="5" inputmode="numeric" autocomplete="postal-code"><em class="od-err" id="od-e-zip"></em></label>
+                    <p class="od-muted od-full">{plhd_zones}</p>
+                </div>
+            </section>
+            <section class="od-box">
+                <h2><span class="od-n">3</span>Day and time</h2>
+                <div class="od-two">
+                    <label class="od-field"><span>Day</span><div id="od-datebox">{plhd_dates}</div><em class="od-err" id="od-e-date"></em></label>
+                    <label class="od-field"><span>Time window</span><div id="od-slotbox"><select id="od-slot"><option value="">Choose a day first</option></select></div><em class="od-err" id="od-e-slot"></em></label>
+                </div>
+                <p class="od-muted">{plhd_leadline}</p>
+            </section>
+            <section class="od-box">
+                <h2><span class="od-n">4</span>Your details</h2>
+                <div class="od-two">
+                    <label class="od-field"><span>Name</span><input type="text" id="od-name" maxlength="60" autocomplete="name"><em class="od-err" id="od-e-name"></em></label>
+                    <label class="od-field"><span>Phone</span><input type="tel" id="od-phone" maxlength="30" autocomplete="tel"><em class="od-err" id="od-e-phone"></em></label>
+                </div>
+                <label class="od-field od-gap"><span>Email (used to look up your order)</span><input type="email" id="od-email" maxlength="80" autocomplete="email"><em class="od-err" id="od-e-email"></em></label>
+                <label class="od-field od-gap"><span>Note for the bakers (optional)</span><textarea id="od-note" maxlength="200" rows="3" placeholder="Allergies, a birthday message, a ring at the door"></textarea><em class="od-err" id="od-e-note"></em></label>
+            </section>
+        </div>
+        <aside class="od-side">
+            <div class="od-sum">
+                <h2>Summary</h2>
+                <div id="od-sum"></div>
+                <em class="od-err od-formerr" id="od-e-form" role="alert"></em>
+                <button type="submit" class="od-btn od-btn-wide" id="od-place">Place order</button>
+                <p class="od-fine">No card needed. Pay at the counter or at your door.</p>
+            </div>
+        </aside>
+    </form>
+</section>
+</main>
+<footer class="od-foot">
+    <div class="od-foot-in">
+        <div class="od-fbrand">
+            <a class="od-logo" href="Home"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#2B1D14"/><path d="M8 25c0-7 5-12 12-12s12 5 12 12c0 2-1 3-3 3H11c-2 0-3-1-3-3z" fill="#E6C58C"/><path d="M15 20l2 5M21 18l1 7M27 20l-2 5" stroke="#2B1D14" stroke-width="2" stroke-linecap="round"/><path d="M11 31h18" stroke="#C2652A" stroke-width="3" stroke-linecap="round"/></svg><span>Hearthstone</span></a>
+            <p>{plhd_f_tag}</p>
+        </div>
+        <div class="od-fcol"><b>Visit</b><p>{plhd_f_address}</p><p>{plhd_f_phone}</p></div>
+        <div class="od-fcol"><b>Hours</b>{plhd_f_hours}</div>
+        <div class="od-fcol"><b>Explore</b><a href="Menu">Menu</a><a href="Order">Order online</a><a href="Track">Track an order</a><a href="Contact">Contact</a></div>
+    </div>
+    <div class="od-foot-b">&copy; 2026 Hearthstone Bakery &middot; <a href="AdminLogin">Staff sign in</a></div>
+</footer>
+<div class="od-toast" id="od-toast" role="status" aria-live="polite"></div>
+</div>

@@ -1,0 +1,22 @@
+<div class="lg-site" data-page="AdminLogin">
+<main class="lg-wrap">
+    <div class="lg-card">
+        <a class="lg-logo" href="Home" aria-label="Hearthstone Bakery site"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#2B1D14"/><path d="M8 25c0-7 5-12 12-12s12 5 12 12c0 2-1 3-3 3H11c-2 0-3-1-3-3z" fill="#E6C58C"/><path d="M15 20l2 5M21 18l1 7M27 20l-2 5" stroke="#2B1D14" stroke-width="2" stroke-linecap="round"/><path d="M11 31h18" stroke="#C2652A" stroke-width="3" stroke-linecap="round"/></svg><span>Hearthstone</span></a>
+        <h1>Staff sign in</h1>
+        <p class="lg-muted">Orders, products and messages for the people who run the bakery.</p>
+        {plhd_first}
+        <form class="lg-form" onsubmit="return AdminLoginJs.submit()" novalidate>
+            <label class="lg-field"><span>User name</span><input type="text" id="lg-login" maxlength="40" autocomplete="username" autocapitalize="none"></label>
+            <label class="lg-field"><span id="lg-plabel">Password</span><input type="password" id="lg-pass" maxlength="100" autocomplete="current-password"></label>
+            <div class="lg-choose" id="lg-choose" hidden>
+                <p class="lg-note">This is your first sign-in. Choose your own password, at least 8 characters.</p>
+                <label class="lg-field"><span>New password</span><input type="password" id="lg-new1" maxlength="100" autocomplete="new-password"></label>
+                <label class="lg-field"><span>New password again</span><input type="password" id="lg-new2" maxlength="100" autocomplete="new-password"></label>
+            </div>
+            <em class="lg-err" id="lg-e-form" role="alert"></em>
+            <button type="submit" class="lg-btn" id="lg-go">Sign in</button>
+        </form>
+        <a class="lg-back" href="Home">Back to the bakery site</a>
+    </div>
+</main>
+</div>
