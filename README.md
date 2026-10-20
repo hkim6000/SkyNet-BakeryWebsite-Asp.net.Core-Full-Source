@@ -5,6 +5,8 @@ A responsive bakery website with online ordering for **ASP.NET Core (.NET 10)**,
 [![.NET 10](https://img.shields.io/badge/.NET-10-512BD4)](https://dotnet.microsoft.com/)
 [![NuGet](https://img.shields.io/nuget/v/TheSkyLite.SkyNet?label=TheSkyLite.SkyNet)](https://www.nuget.org/packages/TheSkyLite.SkyNet)
 
+![Home page](docs/screenshot-home.png)
+
 > **Sample content.** Hearthstone Bakery, its 13 products, team and prices are invented placeholders; replace them in `data/site.json` or in the staff area. Every form already saves for real: orders go to `data/orders.json`, contact messages to `data/messages.json`, staff and the activity log to `data/staff.json` and `data/activity.json`.
 
 ## Features
@@ -16,6 +18,8 @@ A responsive bakery website with online ordering for **ASP.NET Core (.NET 10)**,
 - **Track:** customers look up an order with its number and email and see its status.
 - **Staff area:** orders (status steps, cancel with reason), products (prices, sold out, add, delete), messages, users with a rights grid, settings (hours, fees, ZIPs, windows, closed dates), activity log, own account.
 - **No front-end build:** plain HTML, CSS and vanilla JavaScript.
+
+![Desktop, tablet and phone](docs/screenshot-responsive.png)
 
 ## Getting started
 
@@ -103,4 +107,5 @@ public async Task<ApiResponse> Quote()
 
 ## License
 
+- **This template** (all source files, artwork and data in this repository): [MIT License](LICENSE) — free to use, modify and redistribute, including commercially.
 - **SkyNet Framework** (`TheSkyLite.SkyNet` NuGet package): proprietary, free to use including commercial use; see the license included in the package.
